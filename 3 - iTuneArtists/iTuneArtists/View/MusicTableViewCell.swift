@@ -8,7 +8,7 @@
 import UIKit
 
 class MusicTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var musicImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -17,8 +17,9 @@ class MusicTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupPriceLabel()
+        setupSeparator()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -28,10 +29,14 @@ class MusicTableViewCell: UITableViewCell {
         priceLabel.layer.borderWidth = 1.0
         priceLabel.layer.cornerRadius = 5.0
         priceLabel.layer.masksToBounds = true
+        
+    }
+    
+    func setupSeparator(){
         let separator = UIView(frame: CGRect(x: 15, y: self.frame.size.height - 0.5, width: self.frame.size.width - 30, height: 0.5))
         separator.backgroundColor = UIColor.lightGray
         separator.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         self.addSubview(separator)
     }
-
+    
 }

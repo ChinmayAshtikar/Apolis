@@ -17,9 +17,31 @@
 		8241C7452C1A28EF00D0CF76 /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8241C7442C1A28EF00D0CF76 /* MusicTableViewCell.swift */; };
 		8241C7482C1A295D00D0CF76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8241C7472C1A295D00D0CF76 /* Constants.swift */; };
 		8241C74A2C1A2B1700D0CF76 /* NetworkAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8241C7492C1A2B1700D0CF76 /* NetworkAPIManager.swift */; };
+		828DD6602C20C5FA00ED09AB /* iTuneArtistsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828DD65F2C20C5FA00ED09AB /* iTuneArtistsUnitTests.swift */; };
+		82B0332C2C1CEE2000DCE761 /* MusicDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0332B2C1CEE2000DCE761 /* MusicDataViewModel.swift */; };
+		E4F22122AF607367C67B4322 /* Pods_iTuneArtists.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A7D07B5B94280383034F26 /* Pods_iTuneArtists.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		828DD6542C20C57C00ED09AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8241C71F2C1A288500D0CF76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8241C7262C1A288500D0CF76;
+			remoteInfo = iTuneArtists;
+		};
+		828DD6612C20C5FA00ED09AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8241C71F2C1A288500D0CF76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8241C7262C1A288500D0CF76;
+			remoteInfo = iTuneArtists;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		062E9F47551A17EB6530D03E /* Pods-iTuneArtists.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTuneArtists.debug.xcconfig"; path = "Target Support Files/Pods-iTuneArtists/Pods-iTuneArtists.debug.xcconfig"; sourceTree = "<group>"; };
+		81A7D07B5B94280383034F26 /* Pods_iTuneArtists.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTuneArtists.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8241C7272C1A288500D0CF76 /* iTuneArtists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTuneArtists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8241C72A2C1A288500D0CF76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8241C72C2C1A288500D0CF76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,10 +54,30 @@
 		8241C7442C1A28EF00D0CF76 /* MusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
 		8241C7472C1A295D00D0CF76 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8241C7492C1A2B1700D0CF76 /* NetworkAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIManager.swift; sourceTree = "<group>"; };
+		828DD6502C20C57C00ED09AB /* iTuneArtistsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTuneArtistsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		828DD65D2C20C5FA00ED09AB /* iTuneArtistsUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTuneArtistsUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		828DD65F2C20C5FA00ED09AB /* iTuneArtistsUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTuneArtistsUnitTests.swift; sourceTree = "<group>"; };
+		82B0332B2C1CEE2000DCE761 /* MusicDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDataViewModel.swift; sourceTree = "<group>"; };
+		BBA2EF1993C1B48A3AAA5EFD /* Pods-iTuneArtists.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTuneArtists.release.xcconfig"; path = "Target Support Files/Pods-iTuneArtists/Pods-iTuneArtists.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8241C7242C1A288500D0CF76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4F22122AF607367C67B4322 /* Pods_iTuneArtists.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		828DD64D2C20C57C00ED09AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		828DD65A2C20C5FA00ED09AB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,11 +87,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02399D379CB83E065878A767 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				062E9F47551A17EB6530D03E /* Pods-iTuneArtists.debug.xcconfig */,
+				BBA2EF1993C1B48A3AAA5EFD /* Pods-iTuneArtists.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8241C71E2C1A288500D0CF76 = {
 			isa = PBXGroup;
 			children = (
 				8241C7292C1A288500D0CF76 /* iTuneArtists */,
+				828DD65E2C20C5FA00ED09AB /* iTuneArtistsUnitTests */,
 				8241C7282C1A288500D0CF76 /* Products */,
+				02399D379CB83E065878A767 /* Pods */,
+				BF47C3E4AADA3FA7BD032F62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				8241C7272C1A288500D0CF76 /* iTuneArtists.app */,
+				828DD6502C20C57C00ED09AB /* iTuneArtistsTests.xctest */,
+				828DD65D2C20C5FA00ED09AB /* iTuneArtistsUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +120,7 @@
 		8241C7292C1A288500D0CF76 /* iTuneArtists */ = {
 			isa = PBXGroup;
 			children = (
+				82B0332A2C1CEE0600DCE761 /* ViewModel */,
 				8241C7462C1A295000D0CF76 /* Common */,
 				8241C7412C1A28B400D0CF76 /* Network */,
 				8241C7402C1A28AE00D0CF76 /* Controller */,
@@ -119,6 +176,30 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		828DD65E2C20C5FA00ED09AB /* iTuneArtistsUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				828DD65F2C20C5FA00ED09AB /* iTuneArtistsUnitTests.swift */,
+			);
+			path = iTuneArtistsUnitTests;
+			sourceTree = "<group>";
+		};
+		82B0332A2C1CEE0600DCE761 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				82B0332B2C1CEE2000DCE761 /* MusicDataViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BF47C3E4AADA3FA7BD032F62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81A7D07B5B94280383034F26 /* Pods_iTuneArtists.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8241C73B2C1A288800D0CF76 /* Build configuration list for PBXNativeTarget "iTuneArtists" */;
 			buildPhases = (
+				23C1F3E4983A64ABC2A3CEA0 /* [CP] Check Pods Manifest.lock */,
 				8241C7232C1A288500D0CF76 /* Sources */,
 				8241C7242C1A288500D0CF76 /* Frameworks */,
 				8241C7252C1A288500D0CF76 /* Resources */,
+				2D54B5E7DAA5A0CBF0FD3DE7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -138,6 +221,42 @@
 			productName = iTuneArtists;
 			productReference = 8241C7272C1A288500D0CF76 /* iTuneArtists.app */;
 			productType = "com.apple.product-type.application";
+		};
+		828DD64F2C20C57C00ED09AB /* iTuneArtistsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 828DD6562C20C57C00ED09AB /* Build configuration list for PBXNativeTarget "iTuneArtistsTests" */;
+			buildPhases = (
+				828DD64C2C20C57C00ED09AB /* Sources */,
+				828DD64D2C20C57C00ED09AB /* Frameworks */,
+				828DD64E2C20C57C00ED09AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				828DD6552C20C57C00ED09AB /* PBXTargetDependency */,
+			);
+			name = iTuneArtistsTests;
+			productName = iTuneArtistsTests;
+			productReference = 828DD6502C20C57C00ED09AB /* iTuneArtistsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		828DD65C2C20C5FA00ED09AB /* iTuneArtistsUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 828DD6632C20C5FA00ED09AB /* Build configuration list for PBXNativeTarget "iTuneArtistsUnitTests" */;
+			buildPhases = (
+				828DD6592C20C5FA00ED09AB /* Sources */,
+				828DD65A2C20C5FA00ED09AB /* Frameworks */,
+				828DD65B2C20C5FA00ED09AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				828DD6622C20C5FA00ED09AB /* PBXTargetDependency */,
+			);
+			name = iTuneArtistsUnitTests;
+			productName = iTuneArtistsUnitTests;
+			productReference = 828DD65D2C20C5FA00ED09AB /* iTuneArtistsUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -151,6 +270,14 @@
 				TargetAttributes = {
 					8241C7262C1A288500D0CF76 = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					828DD64F2C20C57C00ED09AB = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 8241C7262C1A288500D0CF76;
+					};
+					828DD65C2C20C5FA00ED09AB = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 8241C7262C1A288500D0CF76;
 					};
 				};
 			};
@@ -168,6 +295,8 @@
 			projectRoot = "";
 			targets = (
 				8241C7262C1A288500D0CF76 /* iTuneArtists */,
+				828DD64F2C20C57C00ED09AB /* iTuneArtistsTests */,
+				828DD65C2C20C5FA00ED09AB /* iTuneArtistsUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -183,7 +312,63 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		828DD64E2C20C57C00ED09AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		828DD65B2C20C5FA00ED09AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23C1F3E4983A64ABC2A3CEA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iTuneArtists-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D54B5E7DAA5A0CBF0FD3DE7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iTuneArtists/Pods-iTuneArtists-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iTuneArtists/Pods-iTuneArtists-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iTuneArtists/Pods-iTuneArtists-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8241C7232C1A288500D0CF76 /* Sources */ = {
@@ -192,6 +377,7 @@
 			files = (
 				8241C7452C1A28EF00D0CF76 /* MusicTableViewCell.swift in Sources */,
 				8241C72F2C1A288500D0CF76 /* MusicViewController.swift in Sources */,
+				82B0332C2C1CEE2000DCE761 /* MusicDataViewModel.swift in Sources */,
 				8241C7432C1A28D600D0CF76 /* MusicData.swift in Sources */,
 				8241C72B2C1A288500D0CF76 /* AppDelegate.swift in Sources */,
 				8241C72D2C1A288500D0CF76 /* SceneDelegate.swift in Sources */,
@@ -200,7 +386,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		828DD64C2C20C57C00ED09AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		828DD6592C20C5FA00ED09AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				828DD6602C20C5FA00ED09AB /* iTuneArtistsUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		828DD6552C20C57C00ED09AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8241C7262C1A288500D0CF76 /* iTuneArtists */;
+			targetProxy = 828DD6542C20C57C00ED09AB /* PBXContainerItemProxy */;
+		};
+		828DD6622C20C5FA00ED09AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8241C7262C1A288500D0CF76 /* iTuneArtists */;
+			targetProxy = 828DD6612C20C5FA00ED09AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8241C7302C1A288500D0CF76 /* Main.storyboard */ = {
@@ -259,7 +473,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -322,7 +536,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -343,6 +557,7 @@
 		};
 		8241C73C2C1A288800D0CF76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 062E9F47551A17EB6530D03E /* Pods-iTuneArtists.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -370,6 +585,7 @@
 		};
 		8241C73D2C1A288800D0CF76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBA2EF1993C1B48A3AAA5EFD /* Pods-iTuneArtists.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -395,6 +611,86 @@
 			};
 			name = Release;
 		};
+		828DD6572C20C57C00ED09AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chinmay.development.iTuneArtistsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTuneArtists.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iTuneArtists";
+			};
+			name = Debug;
+		};
+		828DD6582C20C57C00ED09AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chinmay.development.iTuneArtistsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTuneArtists.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iTuneArtists";
+			};
+			name = Release;
+		};
+		828DD6642C20C5FA00ED09AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chinmay.development.iTuneArtistsUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTuneArtists.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iTuneArtists";
+			};
+			name = Debug;
+		};
+		828DD6652C20C5FA00ED09AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chinmay.development.iTuneArtistsUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTuneArtists.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iTuneArtists";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -412,6 +708,24 @@
 			buildConfigurations = (
 				8241C73C2C1A288800D0CF76 /* Debug */,
 				8241C73D2C1A288800D0CF76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		828DD6562C20C57C00ED09AB /* Build configuration list for PBXNativeTarget "iTuneArtistsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				828DD6572C20C57C00ED09AB /* Debug */,
+				828DD6582C20C57C00ED09AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		828DD6632C20C5FA00ED09AB /* Build configuration list for PBXNativeTarget "iTuneArtistsUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				828DD6642C20C5FA00ED09AB /* Debug */,
+				828DD6652C20C5FA00ED09AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
