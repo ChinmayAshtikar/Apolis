@@ -24,6 +24,20 @@ class MusicTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func configure(with artist: Artist) {
+        nameLabel.text = artist.artistName
+        detailLabel.text = "\(artist.country) - \(artist.primaryGenreName)"
+        priceLabel.text = "$\(artist.collectionPrice)"
+        if let imageUrl = artist.artworkUrl100 {
+            NetworkAPIManager.shared.fetchImage(urlString: imageUrl) { data in
+                guard let imageData = data else { return }
+                DispatchQueue.main.async {
+                    self.musicImage.image = UIImage(data: imageData)
+                }
+            }
+        }
+    }
+    
     func setupPriceLabel(){
         priceLabel.layer.borderColor = UIColor.blue.cgColor
         priceLabel.layer.borderWidth = 1.0
@@ -39,4 +53,19 @@ class MusicTableViewCell: UITableViewCell {
         self.addSubview(separator)
     }
     
+}
+
+extension MusicViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.getArtistCount()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MusicTable.musicTableCellIdentifer.rawValue, for: indexPath) as? MusicTableViewCell else {
+            return UITableViewCell()
+        }
+        let artist = viewModel.getArtist(at: indexPath.row)
+        cell.configure(with: artist)
+        return cell
+    }
 }

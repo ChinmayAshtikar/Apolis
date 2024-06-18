@@ -7,15 +7,23 @@
 
 import Foundation
 
-enum Constants: String {
+enum URLProps: String{
     case artistURL = "https://itunes.apple.com/search?term=a"
 }
 
-enum ServerError: String {
+enum Constants: String {
+    case okButtonTitle = "OK"
+}
+
+enum AlertProps: String {
+    case errorAlertTitle = "Error"
+    case errorAlertMessage = "An error occurred while fetching data."
+}
+
+enum ServerMsg: String, Error {
     case apiError = "Failed to decode JSON"
 }
 
 enum MusicTable: String {
     case musicTableCellIdentifer = "musicCell"
-    
 }

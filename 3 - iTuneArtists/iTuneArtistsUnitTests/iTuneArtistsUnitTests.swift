@@ -44,7 +44,7 @@ class NetworkAPIManagerTests: XCTestCase {
         var artists: [Artist]?
         var fetchError: Error?
         
-        let invalidURL = "https://invalidurl.com"
+        let invalidURL = "https://wrong.com"
         
         apiManager.fetchArtists(urlString: invalidURL) { fetchedArtists, error in
             artists = fetchedArtists
