@@ -16,6 +16,7 @@ class PersonViewController: UIViewController{
     @IBOutlet weak var loadingPerson: UIActivityIndicatorView!
     
     private var personViewModel = PersonViewModel()
+    private var person = [Person]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,18 @@ class PersonViewController: UIViewController{
 extension PersonViewController {
     func startLoadingData() {
         loadingPerson.startAnimating()
-        personViewModel.fetchPerson()
+        Task {
+            do {
+                if let fetchedPerson = try await personViewModel.fetchPerson() {
+                    self.person = [fetchedPerson]
+                    personTable.reloadData()
+                }
+                loadingPerson.stopAnimating()
+            } catch {
+                loadingPerson.stopAnimating()
+                print("Error: \(error.localizedDescription)")
+            }
+        }
     }
 }
 

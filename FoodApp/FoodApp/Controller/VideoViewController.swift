@@ -22,6 +22,7 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var loadingVideo: UIActivityIndicatorView!
     
     private var videoViewModel = VideoViewModel()
+    private var transcodings = [Transcoding]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,18 @@ class VideoViewController: UIViewController {
 extension VideoViewController {
     func startLoadingData() {
         loadingVideo.startAnimating()
-        videoViewModel.fetchVideos()
+        Task {
+            do {
+                if let fetchedVideos = try await videoViewModel.fetchVideos() {
+                    self.transcodings = videoViewModel.getTranscodings()
+                    videoTable.reloadData()
+                }
+                loadingVideo.stopAnimating()
+            } catch {
+                loadingVideo.stopAnimating()
+                print("Error: \(error.localizedDescription)")
+            }
+        }
     }
 }
 

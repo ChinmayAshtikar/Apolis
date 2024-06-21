@@ -564,6 +564,9 @@
                                                             <buttonConfiguration key="configuration" style="plain" title="MORE">
                                                                 <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
                                                             </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="moreButtonPressed:" destination="xtZ-mP-AYI" eventType="touchUpInside" id="zP9-PW-stn"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -583,8 +586,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="mealImageView" destination="HqC-7v-le7" id="cgy-F3-a7U"/>
+                                            <outlet property="mealInstructionsHeightConstraint" destination="pRX-RB-Fmy" id="uaw-1z-ueO"/>
                                             <outlet property="mealInstructionsLabel" destination="ldM-Cc-7FL" id="Btu-Sh-ETZ"/>
                                             <outlet property="mealNameLabel" destination="LkS-4t-O8X" id="mfu-sj-Lxr"/>
+                                            <outlet property="mealStackView" destination="k7K-Be-TVq" id="bki-22-kJn"/>
+                                            <outlet property="mealStackViewHeightConstraint" destination="Wdp-yL-ruu" id="aD0-5v-Zke"/>
                                             <outlet property="moreButton" destination="e2P-pE-XeW" id="YeQ-Aw-tcO"/>
                                         </connections>
                                     </tableViewCell>

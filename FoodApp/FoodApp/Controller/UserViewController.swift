@@ -17,6 +17,7 @@ class UserViewController: UIViewController {
     @IBOutlet weak var userTable: UITableView!
     
     private var userViewModel = UserViewModel()
+    private var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,18 @@ class UserViewController: UIViewController {
 extension UserViewController {
     func startLoadingData() {
         loadingUser.startAnimating()
-        userViewModel.fetchUsers()
+        Task {
+            do {
+                if let fetchedUsers = try await userViewModel.fetchUsers() {
+                    self.users = fetchedUsers
+                    userTable.reloadData()
+                }
+                loadingUser.stopAnimating()
+            } catch {
+                loadingUser.stopAnimating()
+                print("Error - \(error.localizedDescription)")
+            }
+        }
     }
 }
 
@@ -63,3 +75,9 @@ extension UserViewController: DataPassDelegate {
         print(ErrorMsg.fetchDataFailed)
     }
 }
+
+
+//    func startLoadingData() {
+//        loadingUser.startAnimating()
+//        userViewModel.fetchUsers()
+//    }
