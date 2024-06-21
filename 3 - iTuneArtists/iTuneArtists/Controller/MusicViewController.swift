@@ -7,12 +7,11 @@
 
 import UIKit
 
-class MusicViewController: UIViewController, MusicDataViewModelDelegate {
+class MusicViewController: UIViewController, MusicDataViewModelDelegate{
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var appTable: UITableView!
     
-    var artistsArr: [Artist] = []
     var viewModel = MusicDataViewModel()
     
     override func viewDidLoad() {
@@ -20,77 +19,41 @@ class MusicViewController: UIViewController, MusicDataViewModelDelegate {
         appTable.dataSource = self
         setNavTitle()
         viewModel.delegate = self
-        loadData()
+        startProgress()
+        viewModel.fetchData()
+    }
+    
+    func didFetchData() {
+        stopProgress()
+    }
+    
+    func didShowError(_ error: Error) {
+        stopProgress()
+        showErrorAlert(message: error.localizedDescription)
     }
 }
 
-
-extension MusicViewController{
+private extension MusicViewController {
+    func startProgress() {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+    }
     
-    func didFetchData() {
+    func stopProgress() {
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
             self.appTable.reloadData()
         }
     }
     
-    func didShowError(_ error: Error) {
-        DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
-            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+    func showErrorAlert(message: String) {
+        let alert = UIAlertController(title: AlertProps.errorAlertTitle.rawValue, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Constants.okButtonTitle.rawValue, style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
-        
-        func loadData() {
-            activityIndicator.startAnimating()
-            viewModel.fetchData()
-        }
-        
-        func refreshTable() {
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.appTable.reloadData()
-            }
-        }
-        
-        func showError(_ error: Error) {
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-        
-        func setNavTitle() {
-            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        }
-}
-
-extension MusicViewController: UITableViewDataSource {
-    // MARK: - Number of rows
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.artists.count
-    }
-    // MARK: - Cell for Row
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MusicTable.musicTableCellIdentifer.rawValue, for: indexPath) as? MusicTableViewCell else {
-            return UITableViewCell()
-        }
-        let artist = viewModel.artists[indexPath.row]
-        cell.nameLabel?.text = artist.artistName
-        cell.detailLabel?.text = "\(artist.country) - \(artist.primaryGenreName)"
-        cell.priceLabel?.text = "$\(artist.collectionPrice)"
-        if let imageUrl = artist.artworkUrl100 {
-            viewModel.fetchImage(urlString: imageUrl) { data in
-                guard let imageData = data else { return }
-                DispatchQueue.main.async {
-                    cell.musicImage.image = UIImage(data: imageData)
-                }
-            }
-        }
-        return cell
+    
+    func setNavTitle() {
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
 }

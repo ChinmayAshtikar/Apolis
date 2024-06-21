@@ -16,16 +16,9 @@ class NetworkAPIManager {
         self.session = session
     }
     
-    //private init() {}
-    
-    //    func fetchArtists(){
-    //        AF.request(Constants.artistURL.rawValue).response { response in
-    //            debugPrint(response)
-    //        }
-    //    }
-    func fetchArtists(urlString: String = Constants.artistURL.rawValue, completion: @escaping ([Artist]?, Error?) -> Void) {
+    func fetchArtists(urlString: String = URLProps.artistURL.rawValue, completion: @escaping ([Artist]?, Error?) -> Void) {
             guard let url = URL(string: urlString) else {
-                completion(nil, ServerError.apiError as? Error)
+                completion(nil, ServerMsg.apiError)
                 return
             }
             let task = session.dataTask(with: url) { (data, response, error) in
@@ -58,6 +51,5 @@ class NetworkAPIManager {
         task.resume()
     }
 }
-
 
 

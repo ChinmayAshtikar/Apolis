@@ -14,7 +14,7 @@ protocol MusicDataViewModelDelegate: AnyObject {
 }
 
 class MusicDataViewModel {
-    var artists: [Artist] = []
+    private var artists: [Artist] = []
     weak var delegate: MusicDataViewModelDelegate?
     
     func fetchData() {
@@ -29,11 +29,16 @@ class MusicDataViewModel {
             }
         }
     }
-//    func fetchData(){
-//        NetworkAPIManager.shared.fetchArtists()
-//    }
     
     func fetchImage(urlString: String, completion: @escaping (Data?) -> Void) {
         NetworkAPIManager.shared.fetchImage(urlString: urlString, completion: completion)
+    }
+    
+    func getArtistCount() -> Int {
+        return artists.count
+    }
+    
+    func getArtist(at row: Int) -> Artist {
+        return artists[row]
     }
 }
