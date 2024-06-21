@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct Person: Codable {
+    let name: String
+    let height: String
+    let birth_year: String
+    let gender: String
+    let created: String
+}
+
