@@ -68,7 +68,7 @@ extension MealViewController: UITableViewDataSource {
 // UITableViewDelegate
 extension MealViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return expandedStates[indexPath.row] ? 500 : UITableView.automaticDimension
+        return UITableView.automaticDimension
     }
 }
 
@@ -82,67 +82,3 @@ extension MealViewController: MealTableViewCellDelegate {
         }
     }
 }
-
-//// Helper Functions
-//extension MealViewController {
-//    func startLoadingData() {
-//        loadingMeal.startAnimating()
-//        Task {
-//            do {
-//                if let fetchedMeals = try await mealViewModel.fetchMeals() {
-//                    self.meals = mealViewModel.getMeals()
-//                    mealTable.reloadData()
-//                }
-//                loadingMeal.stopAnimating()
-//            } catch {
-//                loadingMeal.stopAnimating()
-//                print("Error: \(error.localizedDescription)")
-//            }
-//        }
-//    }
-//}
-//
-//// UITableViewDataSource
-//extension MealViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return mealViewModel.getMeals().count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: TableCells.mealCell, for: indexPath) as! MealTableViewCell
-//        let meal = mealViewModel.getMeals()[indexPath.row]
-//        cell.configure(with: meal)
-//        cell.delegate = self
-//        return cell
-//    }
-//}
-//extension MealViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let meal = meals[indexPath.row]
-//        return meal.isExpanded ? 500 : UITableView.automaticDimension
-//    }
-//}
-//
-//// MealTableViewCellDelegate
-//extension MealViewController: MealTableViewCellDelegate {
-//    func didTapMoreButton(on cell: MealTableViewCell) {
-//        if let indexPath = mealTable.indexPath(for: cell) {
-//            mealTable.beginUpdates()
-//            mealTable.endUpdates()
-//        }
-//    }
-//}
-//
-//
-//// DataPassDelegate
-//extension MealViewController: DataPassDelegate {
-//    func didFetchData() {
-//        mealTable.reloadData()
-//        loadingMeal.stopAnimating()
-//    }
-//
-//    func didNotFetchData(error: Error) {
-//        loadingMeal.stopAnimating()
-//        print("\(error.localizedDescription)")
-//    }
-//}

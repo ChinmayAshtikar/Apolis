@@ -48,6 +48,7 @@ class MealTableViewCell: UITableViewCell {
         updateUI()
         delegate?.didTapMoreButton(on: self)
     }
+    
     private func loadImage(from url: URL) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else { return }
@@ -56,15 +57,19 @@ class MealTableViewCell: UITableViewCell {
             }
         }.resume()
     }
+    
     private func updateUI() {
         if isExpanded {
-            mealInstructionsHeightConstraint.constant = 400
-            mealStackViewHeightConstraint.constant = 481
-            moreButton.setTitle("Less", for: .normal)
+            mealInstructionsLabel.numberOfLines = 0
+            let fullHeight = mealInstructionsLabel.sizeThatFits(CGSize(width: mealInstructionsLabel.frame.width, height: CGFloat.greatestFiniteMagnitude)).height
+            mealInstructionsHeightConstraint.constant = fullHeight
+            mealStackViewHeightConstraint.constant = fullHeight + 81
+            moreButton.setTitle(Defaults.less, for: .normal)
         } else {
-            mealInstructionsHeightConstraint.constant = 50
-            mealStackViewHeightConstraint.constant = 141
-            moreButton.setTitle("More", for: .normal)
+            mealInstructionsLabel.numberOfLines = 3
+            mealInstructionsHeightConstraint.constant = mealInstructionsLabel.font.lineHeight * 3
+            mealStackViewHeightConstraint.constant = mealInstructionsLabel.font.lineHeight * 3 + 91
+            moreButton.setTitle(Defaults.more, for: .normal)
         }
     }
 }
