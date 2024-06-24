@@ -68,7 +68,7 @@ class MealTableViewCell: UITableViewCell {
         } else {
             mealInstructionsLabel.numberOfLines = 3
             mealInstructionsHeightConstraint.constant = mealInstructionsLabel.font.lineHeight * 3
-            mealStackViewHeightConstraint.constant = mealInstructionsLabel.font.lineHeight * 3 + 91
+            mealStackViewHeightConstraint.constant = mealInstructionsLabel.font.lineHeight * 3 + 81
             moreButton.setTitle(Defaults.more, for: .normal)
         }
     }
