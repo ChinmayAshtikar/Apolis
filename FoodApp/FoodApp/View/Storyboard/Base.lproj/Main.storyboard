@@ -519,22 +519,22 @@
                                 <rect key="frame" x="0.0" y="89" width="393" height="680"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MealCell" rowHeight="180" id="xtZ-mP-AYI" customClass="MealTableViewCell" customModule="FoodApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="180"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MealCell" rowHeight="121" id="xtZ-mP-AYI" customClass="MealTableViewCell" customModule="FoodApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xtZ-mP-AYI" id="4Bb-sb-zRs">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="121"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HqC-7v-le7">
-                                                    <rect key="frame" x="15" y="41.666666666666657" width="100" height="97"/>
+                                                    <rect key="frame" x="15" y="12.333333333333329" width="100" height="97"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="JSs-63-MvW"/>
                                                         <constraint firstAttribute="width" constant="100" id="SzU-bd-FQr"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="k7K-Be-TVq">
-                                                    <rect key="frame" x="130" y="10" width="248" height="160"/>
+                                                    <rect key="frame" x="130" y="10" width="248" height="101"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mealName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkS-4t-O8X">
                                                             <rect key="frame" x="0.0" y="0.0" width="87" height="21"/>
@@ -546,28 +546,31 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mealInstructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldM-Cc-7FL">
-                                                            <rect key="frame" x="0.0" y="36" width="100.66666666666667" height="79"/>
+                                                            <rect key="frame" x="0.0" y="36" width="100.66666666666667" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="pRX-RB-Fmy"/>
+                                                                <constraint firstAttribute="height" priority="250" constant="50" id="pRX-RB-Fmy"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2P-pE-XeW">
-                                                            <rect key="frame" x="0.0" y="130" width="73.666666666666671" height="30"/>
+                                                            <rect key="frame" x="0.0" y="81" width="91.666666666666671" height="20"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="9Ww-TU-xSD"/>
+                                                                <constraint firstAttribute="height" constant="20" id="9Ww-TU-xSD"/>
                                                             </constraints>
-                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" systemColor="tintColor"/>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" title="MORE">
-                                                                <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="Show more">
+                                                                <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="moreButtonPressed:" destination="xtZ-mP-AYI" eventType="touchUpInside" id="zP9-PW-stn"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="131" id="Wdp-yL-ruu"/>
+                                                        <constraint firstAttribute="height" priority="250" constant="161" id="Wdp-yL-ruu"/>
                                                         <constraint firstAttribute="width" constant="248" id="hyH-Fe-baI"/>
                                                     </constraints>
                                                 </stackView>
@@ -583,8 +586,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="mealImageView" destination="HqC-7v-le7" id="cgy-F3-a7U"/>
+                                            <outlet property="mealInstructionsHeightConstraint" destination="pRX-RB-Fmy" id="uaw-1z-ueO"/>
                                             <outlet property="mealInstructionsLabel" destination="ldM-Cc-7FL" id="Btu-Sh-ETZ"/>
                                             <outlet property="mealNameLabel" destination="LkS-4t-O8X" id="mfu-sj-Lxr"/>
+                                            <outlet property="mealStackView" destination="k7K-Be-TVq" id="bki-22-kJn"/>
+                                            <outlet property="mealStackViewHeightConstraint" destination="Wdp-yL-ruu" id="aD0-5v-Zke"/>
                                             <outlet property="moreButton" destination="e2P-pE-XeW" id="YeQ-Aw-tcO"/>
                                         </connections>
                                     </tableViewCell>
@@ -663,6 +669,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

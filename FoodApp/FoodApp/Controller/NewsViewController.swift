@@ -17,6 +17,7 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var loadingNews: UIActivityIndicatorView!
     
     private var newsViewModel = NewsViewModel()
+    private var articles = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,18 @@ class NewsViewController: UIViewController {
 extension NewsViewController {
     func startLoadingData() {
         loadingNews.startAnimating()
-        newsViewModel.fetchNews()
+        Task {
+            do {
+                if let fetchedNews = try await newsViewModel.fetchNews() {
+                    self.articles = newsViewModel.getArticles()
+                    newsTable.reloadData()
+                }
+                loadingNews.stopAnimating()
+            } catch {
+                loadingNews.stopAnimating()
+                print("Error: \(error.localizedDescription)")
+            }
+        }
     }
 }
 

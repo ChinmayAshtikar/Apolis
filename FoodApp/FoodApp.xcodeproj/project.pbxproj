@@ -35,6 +35,7 @@
 		821C7C0B2C23EBC20023BEE2 /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C7C0A2C23EBC20023BEE2 /* MealViewModel.swift */; };
 		821C7C0D2C23EC2C0023BEE2 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C7C0C2C23EC2C0023BEE2 /* MealViewController.swift */; };
 		821C7C0F2C23EC500023BEE2 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C7C0E2C23EC500023BEE2 /* MealTableViewCell.swift */; };
+		821C7C112C25D8A30023BEE2 /* MealTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C7C102C25D8A30023BEE2 /* MealTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		821C7C0A2C23EBC20023BEE2 /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 		821C7C0C2C23EC2C0023BEE2 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		821C7C0E2C23EC500023BEE2 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		821C7C102C25D8A30023BEE2 /* MealTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				821C7BC02C21D5300023BEE2 /* AppDelegate.swift */,
 				821C7BC22C21D5300023BEE2 /* SceneDelegate.swift */,
 				821C7BF62C2342E30023BEE2 /* DataPassDelegate.swift */,
+				821C7C102C25D8A30023BEE2 /* MealTableViewCellDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				821C7BF72C2342E30023BEE2 /* DataPassDelegate.swift in Sources */,
 				821C7BEE2C21F7900023BEE2 /* PersonTableViewCell.swift in Sources */,
 				821C7BEA2C21F4160023BEE2 /* PersonViewController.swift in Sources */,
+				821C7C112C25D8A30023BEE2 /* MealTableViewCellDelegate.swift in Sources */,
 				821C7BC32C21D5300023BEE2 /* SceneDelegate.swift in Sources */,
 				821C7C0D2C23EC2C0023BEE2 /* MealViewController.swift in Sources */,
 				821C7C0B2C23EBC20023BEE2 /* MealViewModel.swift in Sources */,

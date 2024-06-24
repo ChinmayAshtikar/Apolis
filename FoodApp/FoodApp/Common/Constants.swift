@@ -31,8 +31,8 @@ struct TableCells{
 
 
 struct Defaults{
-    
-    
+    static let less = "Less"
+    static let more = "More"
 }
 
 

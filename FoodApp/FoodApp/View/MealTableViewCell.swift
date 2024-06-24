@@ -13,7 +13,13 @@ class MealTableViewCell: UITableViewCell {
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var mealInstructionsLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
+    @IBOutlet weak var mealStackView: UIStackView!
     @IBOutlet weak var mealImageView: UIImageView!
+    @IBOutlet weak var mealStackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var mealInstructionsHeightConstraint: NSLayoutConstraint!
+    
+    weak var delegate: MealTableViewCellDelegate?
+    private var isExpanded: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +29,7 @@ class MealTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(with meal: Meal) {
+    func configure(with meal: Meal, isExpanded: Bool) {
         mealNameLabel.text = meal.strMeal
         mealInstructionsLabel.text = meal.strInstructions
         
@@ -32,6 +38,15 @@ class MealTableViewCell: UITableViewCell {
         } else {
             mealImageView.image = UIImage(systemName: "photo")
         }
+        
+        self.isExpanded = isExpanded
+        updateUI()
+    }
+    
+    @IBAction func moreButtonPressed(_ sender: Any) {
+        isExpanded.toggle()
+        updateUI()
+        delegate?.didTapMoreButton(on: self)
     }
     
     private func loadImage(from url: URL) {
@@ -41,5 +56,20 @@ class MealTableViewCell: UITableViewCell {
                 self.mealImageView.image = UIImage(data: data)
             }
         }.resume()
+    }
+    
+    private func updateUI() {
+        if isExpanded {
+            mealInstructionsLabel.numberOfLines = 0
+            let fullHeight = mealInstructionsLabel.sizeThatFits(CGSize(width: mealInstructionsLabel.frame.width, height: CGFloat.greatestFiniteMagnitude)).height
+            mealInstructionsHeightConstraint.constant = fullHeight
+            mealStackViewHeightConstraint.constant = fullHeight + 81
+            moreButton.setTitle(Defaults.less, for: .normal)
+        } else {
+            mealInstructionsLabel.numberOfLines = 3
+            mealInstructionsHeightConstraint.constant = mealInstructionsLabel.font.lineHeight * 3
+            mealStackViewHeightConstraint.constant = mealInstructionsLabel.font.lineHeight * 3 + 81
+            moreButton.setTitle(Defaults.more, for: .normal)
+        }
     }
 }

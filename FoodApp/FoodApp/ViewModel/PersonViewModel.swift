@@ -11,21 +11,14 @@ class PersonViewModel {
     private var person: Person?
     weak var delegate: DataPassDelegate?
     
-    func fetchPerson() {
+    func fetchPerson() async throws -> Person? {
         let urlString = Constants.personURL
-        NetworkAPIManager.shared.fetchData(urlString) { (result: Result<Person, Error>) in
-            switch result {
-            case .success(let person):
-                DispatchQueue.main.async {
-                    self.person = person
-                    self.delegate?.didFetchData()
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.delegate?.didNotFetchData(error: error)
-                }
-            }
+        let result = try await NetworkAPIManager.shared.fetchData(for: Person.self, url: urlString)
+        if let result = result {
+            self.person = result
+            return result
         }
+        return nil
     }
     
     func getPerson() -> [Person] {
@@ -34,6 +27,30 @@ class PersonViewModel {
         }
         return []
     }
+    
+//    func fetchPerson() {
+//        let urlString = Constants.personURL
+//        NetworkAPIManager.shared.fetchData(urlString) { (result: Result<Person, Error>) in
+//            switch result {
+//            case .success(let person):
+//                DispatchQueue.main.async {
+//                    self.person = person
+//                    self.delegate?.didFetchData()
+//                }
+//            case .failure(let error):
+//                DispatchQueue.main.async {
+//                    self.delegate?.didNotFetchData(error: error)
+//                }
+//            }
+//        }
+//    }
+//    
+//    func getPerson() -> [Person] {
+//        if let person = person {
+//            return [person]
+//        }
+//        return []
+//    }
     
     //    func formattedDate(from dateString: String) -> String? {
     //        let dateFormatter = DateFormatter()
