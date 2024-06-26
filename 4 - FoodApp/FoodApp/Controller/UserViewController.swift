@@ -26,12 +26,31 @@ class UserViewController: UIViewController {
         loadingUser.hidesWhenStopped = true
         
         userViewModel.delegate = self
+        
+        let useMockData = UserDefaults.standard.bool(forKey: "useMockData")
+        userViewModel.useMockData = useMockData
+        
+        startLoadingData()
+    }
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let useMockData = UserDefaults.standard.bool(forKey: "useMockData")
+        userViewModel.useMockData = useMockData
+        startLoadingData()
+    }
+    
+    func didChangeNetworkSetting(useMockData: Bool) {
+        userViewModel.useMockData = useMockData
+        UserDefaults.standard.set(useMockData, forKey: "useMockData")
         startLoadingData()
     }
 }
 
 // Helper Functions
 extension UserViewController {
+    
     func startLoadingData() {
         loadingUser.startAnimating()
         Task {
@@ -63,7 +82,7 @@ extension UserViewController: UITableViewDataSource {
     }
 }
 
-// UserDataDelegate
+// DataPassDelegate
 extension UserViewController: DataPassDelegate {
     func didFetchData() {
         userTable.reloadData()
@@ -76,8 +95,4 @@ extension UserViewController: DataPassDelegate {
     }
 }
 
-
-//    func startLoadingData() {
-//        loadingUser.startAnimating()
-//        userViewModel.fetchUsers()
-//    }
+extension UserViewController: SettingsDelegate {}

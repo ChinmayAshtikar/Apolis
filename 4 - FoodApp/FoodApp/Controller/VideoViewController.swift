@@ -31,6 +31,23 @@ class VideoViewController: UIViewController {
         loadingVideo.hidesWhenStopped = true
         
         videoViewModel.delegate = self
+        
+        let useMockData = UserDefaults.standard.bool(forKey: "useMockData")
+        videoViewModel.useMockData = useMockData
+        
+        startLoadingData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let useMockData = UserDefaults.standard.bool(forKey: "useMockData")
+        videoViewModel.useMockData = useMockData
+        startLoadingData()
+    }
+    
+    func didChangeNetworkSetting(useMockData: Bool) {
+        videoViewModel.useMockData = useMockData
+        UserDefaults.standard.set(useMockData, forKey: "useMockData")
         startLoadingData()
     }
 }
@@ -57,9 +74,7 @@ extension VideoViewController {
 // UITableViewDataSource
 extension VideoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = videoViewModel.getTranscodings().count
-        print("Number of rows in section: \(count)")
-        return count
+        return videoViewModel.getTranscodings().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,7 +88,7 @@ extension VideoViewController: UITableViewDataSource {
     }
 }
 
-// VideoDataDelegate
+// DataPassDelegate
 extension VideoViewController: DataPassDelegate {
     func didFetchData() {
         videoTable.reloadData()
@@ -85,3 +100,5 @@ extension VideoViewController: DataPassDelegate {
         print("\(error.localizedDescription)")
     }
 }
+
+extension VideoViewController: SettingsDelegate {}

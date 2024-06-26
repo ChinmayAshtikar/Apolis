@@ -139,6 +139,7 @@
                             <constraint firstItem="Kgt-63-XaN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fTr-4D-DqK"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Users" image="person.2.circle.fill" catalog="system" id="Wwc-nj-eLR"/>
                     <navigationItem key="navigationItem" title="Displaying User Information" id="ZCf-gd-wJt"/>
                     <connections>
                         <outlet property="loadingUser" destination="a8s-hL-h6u" id="dyg-Jq-7kW"/>
@@ -161,7 +162,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hXz-OH-hqt"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fT0-6c-eaT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqj-xI-iPQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -476,7 +477,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Feed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zal-zD-jk9">
-                                <rect key="frame" x="15" y="109" width="363" height="40"/>
+                                <rect key="frame" x="15" y="109" width="318" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ivi-vO-QBG"/>
                                 </constraints>
@@ -484,13 +485,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gearshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="C4X-BW-swk">
+                                <rect key="frame" x="339" y="112" width="42" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lWT-PF-ciz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dOD-sY-QFj" firstAttribute="top" secondItem="zal-zD-jk9" secondAttribute="bottom" constant="10" id="Aje-2g-zLW"/>
                             <constraint firstItem="dOD-sY-QFj" firstAttribute="leading" secondItem="lWT-PF-ciz" secondAttribute="leading" id="Hhe-kD-uuT"/>
-                            <constraint firstItem="lWT-PF-ciz" firstAttribute="trailing" secondItem="zal-zD-jk9" secondAttribute="trailing" constant="15" id="Izd-W3-8wm"/>
+                            <constraint firstItem="lWT-PF-ciz" firstAttribute="trailing" secondItem="zal-zD-jk9" secondAttribute="trailing" constant="60" id="Izd-W3-8wm"/>
                             <constraint firstItem="dOD-sY-QFj" firstAttribute="top" secondItem="lWT-PF-ciz" secondAttribute="top" constant="100" id="OXb-GA-MHE"/>
                             <constraint firstItem="lWT-PF-ciz" firstAttribute="trailing" secondItem="dOD-sY-QFj" secondAttribute="trailing" id="QYp-g1-J45"/>
                             <constraint firstItem="zal-zD-jk9" firstAttribute="leading" secondItem="lWT-PF-ciz" secondAttribute="leading" constant="15" id="akX-fu-oWd"/>
@@ -501,11 +506,43 @@
                     <connections>
                         <outlet property="loadingNews" destination="CnQ-Ci-Pdo" id="fEa-wE-zaq"/>
                         <outlet property="newsTable" destination="dOD-sY-QFj" id="FTT-Hb-PHP"/>
+                        <outlet property="settingsButton" destination="C4X-BW-swk" id="yXn-af-RDM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBa-BL-FEO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="913.74045801526711" y="704.92957746478874"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="cgI-Qa-Nkj">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A2Q-BC-t7n" customClass="SettingsViewController" customModule="FoodApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="34e-7E-UHx">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Network Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1L-Op-QLl">
+                                <rect key="frame" x="52" y="150" width="153" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jzg-sA-9tI">
+                                <rect key="frame" x="301" y="149" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Fcr-5l-ny7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="networkSwitch" destination="jzg-sA-9tI" id="uH2-if-ycl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="57K-1s-K2h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914" y="1397"/>
         </scene>
         <!--Meals-->
         <scene sceneID="lE4-4A-NQ2">
@@ -659,6 +696,7 @@
     </scenes>
     <resources>
         <image name="fork.knife.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="newspaper.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.2.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
