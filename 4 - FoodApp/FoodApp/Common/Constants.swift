@@ -29,10 +29,12 @@ struct TableCells{
     static let mealCell = "MealCell"
 }
 
-
 struct Defaults{
     static let less = "Less"
     static let more = "More"
 }
 
+struct VC {
+    static let settings = "SettingsViewController"
+}
 

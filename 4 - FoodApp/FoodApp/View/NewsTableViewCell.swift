@@ -15,32 +15,39 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var articleImageView: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    func configure(with article: Article) {
-        titleLabel.text = article.title
-        authorLabel.text = article.author ?? "N/A"
-        sourceLabel.text = article.source.name
+    private var articleURL: String?
         
-        if let imageUrlString = article.urlToImage, let imageUrl = URL(string: imageUrlString) {
-            loadImage(from: imageUrl)
-        } else {
-            articleImageView.image = UIImage(systemName: "photo")
+        override func awakeFromNib() {
+            super.awakeFromNib()
+        }
+        
+        override func setSelected(_ selected: Bool, animated: Bool) {
+            super.setSelected(selected, animated: animated)
+        }
+        
+        func configure(with article: Article) {
+            titleLabel.text = article.title
+            authorLabel.text = article.author ?? "N/A"
+            sourceLabel.text = article.source.name
+            articleURL = article.url
+            
+            if let imageUrlString = article.urlToImage, let imageUrl = URL(string: imageUrlString) {
+                loadImage(from: imageUrl)
+            } else {
+                articleImageView.image = UIImage(systemName: "photo")
+            }
+        }
+        
+        private func loadImage(from url: URL) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async {
+                    self.articleImageView.image = UIImage(data: data)
+                }
+            }.resume()
+        }
+        
+        func getArticleURL() -> String? {
+            return articleURL
         }
     }
-    
-    private func loadImage(from url: URL) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async {
-                self.articleImageView.image = UIImage(data: data)
-            }
-        }.resume()
-    }
-}

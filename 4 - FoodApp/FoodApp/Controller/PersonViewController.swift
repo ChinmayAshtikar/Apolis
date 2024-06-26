@@ -20,12 +20,29 @@ class PersonViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
-         personTable.dataSource = self
-         loadingPerson.hidesWhenStopped = true
-         
-         personViewModel.delegate = self
-         startLoadingData()
+        
+        personTable.dataSource = self
+        loadingPerson.hidesWhenStopped = true
+        
+        personViewModel.delegate = self
+        
+        let useMockData = UserDefaults.standard.bool(forKey: "useMockData")
+        personViewModel.useMockData = useMockData
+        
+        startLoadingData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let useMockData = UserDefaults.standard.bool(forKey: "useMockData")
+        personViewModel.useMockData = useMockData
+        startLoadingData()
+    }
+    
+    func didChangeNetworkSetting(useMockData: Bool) {
+        personViewModel.useMockData = useMockData
+        UserDefaults.standard.set(useMockData, forKey: "useMockData")
+        startLoadingData()
     }
 }
 
@@ -62,7 +79,7 @@ extension PersonViewController: UITableViewDataSource {
     }
 }
 
-// PersonDataDelegate
+// DataPassDelegate
 extension PersonViewController: DataPassDelegate {
     func didFetchData() {
         personTable.reloadData()
@@ -74,3 +91,5 @@ extension PersonViewController: DataPassDelegate {
         print(ErrorMsg.fetchDataFailed)
     }
 }
+
+extension PersonViewController: SettingsDelegate {}

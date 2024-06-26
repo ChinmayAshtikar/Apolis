@@ -10,51 +10,30 @@ import Foundation
 class PersonViewModel {
     private var person: Person?
     weak var delegate: DataPassDelegate?
-    
+    var useMockData = false
+
     func fetchPerson() async throws -> Person? {
         let urlString = Constants.personURL
-        let result = try await NetworkAPIManager.shared.fetchData(for: Person.self, url: urlString)
-        if let result = result {
-            self.person = result
-            return result
+        if useMockData {
+            let result = try await MockAPIManager.shared.fetchData(for: Person.self, url: urlString)
+            if let result = result {
+                self.person = result
+                return result
+            }
+        } else {
+            let result = try await NetworkAPIManager.shared.fetchData(for: Person.self, url: urlString)
+            if let result = result {
+                self.person = result
+                return result
+            }
         }
         return nil
     }
-    
+
     func getPerson() -> [Person] {
         if let person = person {
             return [person]
         }
         return []
     }
-    
-//    func fetchPerson() {
-//        let urlString = Constants.personURL
-//        NetworkAPIManager.shared.fetchData(urlString) { (result: Result<Person, Error>) in
-//            switch result {
-//            case .success(let person):
-//                DispatchQueue.main.async {
-//                    self.person = person
-//                    self.delegate?.didFetchData()
-//                }
-//            case .failure(let error):
-//                DispatchQueue.main.async {
-//                    self.delegate?.didNotFetchData(error: error)
-//                }
-//            }
-//        }
-//    }
-//    
-//    func getPerson() -> [Person] {
-//        if let person = person {
-//            return [person]
-//        }
-//        return []
-//    }
-    
-    //    func formattedDate(from dateString: String) -> String? {
-    //        let dateFormatter = DateFormatter()
-    //        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-    //        guard let date = dateFormatter.date(from: dateString) else { return nil }
-    //    }
 }
